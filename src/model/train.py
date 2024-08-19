@@ -3,9 +3,8 @@
 import argparse
 import glob
 import os
-
+from sklearn.model_selection import train_test_split
 import pandas as pd
-
 from sklearn.linear_model import LogisticRegression
 
 
@@ -34,7 +33,16 @@ def get_csvs_df(path):
 
 
 # TO DO: add function to split data
+def split_data(df):
+    if 'Diabetes' not in df.columns:
+        raise RuntimeError("Dataframe must containt a 'Diabetes' column for labels")
+        
+    X = df.drop(columns='Diabetes', axis = 1)
+    y = df['Diabetes']
 
+    # Split the data into training and testing sets
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2)
+    return X_train, X_test, y_train, y_test
 
 def train_model(reg_rate, X_train, X_test, y_train, y_test):
     # train model
