@@ -36,12 +36,12 @@ def get_csvs_df(path):
 def split_data(df):
     if 'Diabetes' not in df.columns:
         raise RuntimeError("Dataframe must containt a 'Diabetes' column for labels")
-        
-    X = df.drop(columns='Diabetes', axis = 1)
-    y = df['Diabetes']
+    else:
+        X = df.drop(columns='Diabetes', axis = 1)
+        y = df['Diabetes']
 
     # Split the data into training and testing sets
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2)
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2)
     return X_train, X_test, y_train, y_test
 
 def train_model(reg_rate, X_train, X_test, y_train, y_test):
