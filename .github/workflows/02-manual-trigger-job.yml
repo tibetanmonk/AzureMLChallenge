@@ -24,4 +24,4 @@ jobs:
 
     # step 4
     - name: Run Azure ML Job from Challenge 1
-      uses: az ml job create --file 
+      run: az ml job create --file ./src/job.yml --workspace-name MSLearn-MLOps --resource-group ReportingTeamML
