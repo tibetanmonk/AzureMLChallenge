@@ -34,11 +34,11 @@ def get_csvs_df(path):
 
 # TO DO: add function to split data
 def split_data(df):
-    if 'Diabetes' not in df.columns:
-        raise RuntimeError("Dataframe must containt a 'Diabetes' column for labels")
+    if 'Diabetic' not in df.columns:
+        raise RuntimeError("Dataframe must containt a 'Diabetic' column for labels")
     else:
-        X = df.drop(columns='Diabetes', axis = 1)
-        y = df['Diabetes']
+        X = df.drop(columns='Diabetic', axis = 1)
+        y = df['Diabetic']
 
     # Split the data into training and testing sets
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2)
