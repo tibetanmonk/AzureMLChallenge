@@ -13,7 +13,7 @@ inputs:
 
 environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu@latest
 
-compute: azureml:MLOps-RDasGupta
+compute: azureml:MLOps-RDasGupta-Cluster
 
 experiment_name: diabetes-data-localTerminal
 
